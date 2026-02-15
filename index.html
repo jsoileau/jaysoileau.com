@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jay Soileau | Solutions Architect</title>
+  <meta name="description" content="Solutions Architect portfolio — AWS architecture, serverless, integrations, and scalable cloud systems." />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="/">
+        <span class="brand-mark">JS</span>
+        <span class="brand-text">Jay Soileau</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-small" href="/resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="kicker">Solutions Architect • AWS • Serverless • Integrations</p>
+          <h1>Designing secure, scalable systems that ship.</h1>
+          <p class="lead">
+            I build cloud architectures with clean documentation, cost awareness, and real-world operational thinking.
+            This site is hosted on AWS using <strong>S3 + CloudFront + Route 53</strong>.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn" href="#projects">View Projects</a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn btn-ghost" href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+          </div>
+
+          <div class="pill-row">
+            <span class="pill">AWS</span>
+            <span class="pill">Architecture Diagrams</span>
+            <span class="pill">CI/CD</span>
+            <span class="pill">Observability</span>
+            <span class="pill">Security</span>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <div class="card">
+            <div class="card-top">
+              <h2>Now</h2>
+              <p class="muted">Building an AWS portfolio with production patterns.</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="card-list">
+              <div class="card-item">
+                <div class="dot"></div>
+                <div>
+                  <div class="card-label">Live Site</div>
+                  <div class="card-value">jaysoileau.com</div>
+                </div>
+              </div>
+
+              <div class="card-item">
+                <div class="dot"></div>
+                <div>
+                  <div class="card-label">Focus</div>
+                  <div class="card-value">Serverless + CloudFront + IaC</div>
+                </div>
+              </div>
+
+              <div class="card-item">
+                <div class="dot"></div>
+                <div>
+                  <div class="card-label">Location</div>
+                  <div class="card-value">US • Remote-friendly</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Projects</h2>
+          <p class="muted">Case studies with architecture, tradeoffs, security, and cost notes.</p>
+        </div>
+
+        <div class="grid">
+          <article class="project">
+            <div class="project-head">
+              <h3>Static Portfolio on AWS (This Site)</h3>
+              <span class="tag">S3 • CloudFront • Route 53 • ACM</span>
+            </div>
+            <p>
+              Private S3 origin with CloudFront OAC, HTTPS enforcement, and DNS via Route 53.
+              Built to match real production patterns.
+            </p>
+            <div class="project-actions">
+              <a class="link" href="/projects/aws-static-site.html">Read case study →</a>
+              <a class="link" href="https://github.com/" target="_blank" rel="noopener">Repo →</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-head">
+              <h3>Serverless API</h3>
+              <span class="tag">API Gateway • Lambda • DynamoDB</span>
+            </div>
+            <p>
+              A secure serverless API with structured logging, request validation, and cost-conscious design.
+            </p>
+            <div class="project-actions">
+              <a class="link" href="/projects/serverless-api.html">Read case study →</a>
+              <a class="link" href="https://github.com/" target="_blank" rel="noopener">Repo →</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-head">
+              <h3>Event-Driven Pipeline</h3>
+              <span class="tag">S3 • Lambda • SQS • DLQ</span>
+            </div>
+            <p>
+              File ingestion pipeline with retries, dead-letter queues, and operational guardrails.
+            </p>
+            <div class="project-actions">
+              <a class="link" href="/projects/event-pipeline.html">Read case study →</a>
+              <a class="link" href="https://github.com/" target="_blank" rel="noopener">Repo →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section section-alt">
+      <div class="container two-col">
+        <div>
+          <h2>About</h2>
+          <p>
+            I’m a customer-facing technical professional transitioning into Solutions Architecture.
+            I’m focused on building systems that are secure, observable, and easy to operate — not just “works on my machine.”
+          </p>
+          <p class="muted">
+            Strengths: integrations, troubleshooting, documentation, stakeholder communication, and AWS architecture fundamentals.
+          </p>
+        </div>
+
+        <div class="card compact">
+          <h3>Core Skills</h3>
+          <ul class="bullets">
+            <li>AWS: S3, CloudFront, Route 53, ACM, IAM, Lambda, API Gateway</li>
+            <li>Security: least privilege, private origins, HTTPS-only</li>
+            <li>Ops: logging, dashboards/alarms, clean runbooks</li>
+            <li>Delivery: CI/CD pipelines + concise technical docs</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container contact">
+        <div>
+          <h2>Contact</h2>
+          <p class="muted">Best way to reach me:</p>
+        </div>
+
+        <div class="contact-actions">
+          <a class="btn" href="mailto:you@email.com">Email Me</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-ghost" href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-row">
+      <div class="muted">© <span id="year"></span> Jay Soileau</div>
+      <div class="muted">Hosted on AWS • S3 + CloudFront + Route 53</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
