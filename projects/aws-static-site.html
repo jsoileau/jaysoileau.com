@@ -27,12 +27,11 @@
       <section class="card compact" style="margin-top: 20px;">
   <h2>Executive Summary</h2>
   <p>
-    Designed and deployed a secure, globally distributed static portfolio on AWS 
-    using CloudFront, private S3 origin access control (OAC), ACM-managed TLS, 
-    and Route 53 DNS. The solution enforces HTTPS-only access, eliminates long-lived 
-    AWS credentials through GitHub OIDC federation, and follows least-privilege IAM 
-    principles. The architecture is cost-efficient, production-ready, and fully 
-    automated via CI/CD.
+    Architected and implemented a production-grade static website on AWS 
+    using CloudFront as a secure global edge layer in front of a private S3 origin. 
+    Integrated ACM for TLS (us-east-1 requirement), Route 53 for DNS, and 
+    GitHub Actions with OIDC federation for secure, keyless CI/CD deployment. 
+    The solution prioritizes security, scalability, cost efficiency, and operational simplicity.
   </p>
 </section>
       <p class="muted">
