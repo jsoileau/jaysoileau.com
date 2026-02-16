@@ -6,19 +6,6 @@
   <title>AWS Static Site Architecture | Jay Soileau</title>
   <link rel="stylesheet" href="/styles.css" />
 </head>
-
-<section class="card compact" style="margin-top: 20px;">
-  <h2>Executive Summary</h2>
-  <p>
-    Designed and deployed a secure, globally distributed static portfolio on AWS 
-    using CloudFront, private S3 origin access control (OAC), ACM-managed TLS, 
-    and Route 53 DNS. The solution enforces HTTPS-only access, eliminates long-lived 
-    AWS credentials through GitHub OIDC federation, and follows least-privilege IAM 
-    principles. The architecture is cost-efficient, production-ready, and fully 
-    automated via CI/CD.
-  </p>
-</section>
-
 <body>
   <header class="site-header">
     <div class="container nav">
@@ -37,6 +24,17 @@
     <div class="container">
 
       <h1>AWS Static Portfolio Architecture</h1>
+      <section class="card compact" style="margin-top: 20px;">
+  <h2>Executive Summary</h2>
+  <p>
+    Designed and deployed a secure, globally distributed static portfolio on AWS 
+    using CloudFront, private S3 origin access control (OAC), ACM-managed TLS, 
+    and Route 53 DNS. The solution enforces HTTPS-only access, eliminates long-lived 
+    AWS credentials through GitHub OIDC federation, and follows least-privilege IAM 
+    principles. The architecture is cost-efficient, production-ready, and fully 
+    automated via CI/CD.
+  </p>
+</section>
       <p class="muted">
         Production-grade static website hosted on AWS using secure, scalable cloud patterns.
       </p>
