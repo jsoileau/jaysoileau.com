@@ -70,6 +70,150 @@ S3 (Private Bucket via Origin Access Control)
        alt="AWS static site architecture diagram"
        style="max-width:100%; height:auto; border-radius:12px; display:block;">
 </div>
+      <!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AWS Static Site Architecture | Jay Soileau</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="/">
+        <span class="brand-mark">JS</span>
+        <span class="brand-text">Jay Soileau</span>
+      </a>
+      <nav class="nav-links">
+        <a href="/">Home</a>
+        <a href="/#projects">Projects</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+
+      <h1>AWS Static Portfolio Architecture</h1>
+      <section class="card compact" style="margin-top: 20px;">
+  <h2>Executive Summary</h2>
+  <p>
+    Architected and implemented a production-grade static website on AWS 
+    using CloudFront as a secure global edge layer in front of a private S3 origin. 
+    Integrated ACM for TLS (us-east-1 requirement), Route 53 for DNS, and 
+    GitHub Actions with OIDC federation for secure, keyless CI/CD deployment. 
+    The solution prioritizes security, scalability, cost efficiency, and operational simplicity.
+  </p>
+</section>
+      <p class="muted">
+        Production-grade static website hosted on AWS using secure, scalable cloud patterns.
+      </p>
+
+      <hr style="border-color: rgba(255,255,255,.1); margin: 24px 0;">
+
+      <h2>Problem</h2>
+      <p>
+        Build a secure, globally available personal portfolio website using AWS infrastructure
+        while following production best practices:
+      </p>
+      <ul class="bullets">
+        <li>No public S3 access</li>
+        <li>HTTPS-only traffic</li>
+        <li>Least privilege IAM</li>
+        <li>Automated CI/CD deployment</li>
+        <li>Low operational cost</li>
+      </ul>
+
+      <h2>Architecture Overview</h2>
+      <pre style="background:#0f1a2f; padding:16px; border-radius:12px; overflow:auto;">
+User
+  ↓
+Route 53 (DNS)
+  ↓
+CloudFront (CDN + TLS via ACM)
+  ↓
+S3 (Private Bucket via Origin Access Control)
+      </pre>
+      <h2>Architecture Diagram</h2>
+<p class="muted">High-level request flow + CI/CD deployment path.</p>
+<div class="card compact" style="padding:16px; overflow:auto;">
+  <img src="/assets/aws-static-site-architecture.svg"
+       alt="AWS static site architecture diagram"
+       style="max-width:100%; height:auto; border-radius:12px; display:block;">
+</div>
+
+      <h2>AWS Services Used</h2>
+      <ul class="bullets">
+        <li><strong>S3</strong> – Private bucket hosting static files</li>
+        <li><strong>CloudFront</strong> – Global CDN with HTTPS enforcement</li>
+        <li><strong>ACM</strong> – TLS certificate (us-east-1)</li>
+        <li><strong>Route 53</strong> – DNS + alias records</li>
+        <li><strong>IAM</strong> – OIDC-based role for GitHub Actions</li>
+      </ul>
+
+      <h2>Security Decisions</h2>
+      <ul class="bullets">
+        <li>S3 bucket is private (no public ACLs)</li>
+        <li>CloudFront uses Origin Access Control (OAC)</li>
+        <li>HTTPS enforced via redirect policy</li>
+        <li>No long-lived AWS access keys</li>
+        <li>GitHub OIDC federation for short-lived credentials</li>
+        <li>MFA enabled for root and admin users</li>
+      </ul>
+
+      <h2>CI/CD Strategy</h2>
+      <p>
+        The site automatically deploys on push to the <code>main</code> branch.
+      </p>
+      <ul class="bullets">
+        <li>GitHub Actions assumes IAM role via OIDC</li>
+        <li>Syncs repository contents to S3</li>
+        <li>Invalidates CloudFront cache (<code>/*</code>)</li>
+      </ul>
+
+      <h2>Cost Considerations</h2>
+      <ul class="bullets">
+        <li>S3 storage: minimal (static assets only)</li>
+        <li>CloudFront: low traffic footprint</li>
+        <li>ACM: free public certificate</li>
+        <li>Estimated monthly cost: typically &lt; $5 at low traffic</li>
+      </ul>
+
+      <h2>Tradeoffs</h2>
+      <ul class="bullets">
+        <li>Static site only (no dynamic backend)</li>
+        <li>Full cache invalidation used (could optimize later with path-based invalidation)</li>
+        <li>No WAF currently attached (future enhancement)</li>
+      </ul>
+
+      <h2>Future Improvements</h2>
+      <ul class="bullets">
+        <li>Add AWS WAF for additional protection</li>
+        <li>Add CloudWatch metrics dashboard</li>
+        <li>Rebuild infrastructure using Terraform</li>
+        <li>Implement path-based cache control headers</li>
+      </ul>
+
+      <hr style="border-color: rgba(255,255,255,.1); margin: 24px 0;">
+
+      <a class="btn" href="/">← Back to Home</a>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-row">
+      <div class="muted">© <span id="year"></span> Jay Soileau</div>
+      <div class="muted">Hosted on AWS</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
 
       <h2>AWS Services Used</h2>
       <ul class="bullets">
