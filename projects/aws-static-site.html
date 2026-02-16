@@ -114,67 +114,100 @@ S3 (Private Bucket via Origin Access Control)
         </ul>
       </section>
 
-      <!-- AWS Services -->
-      <h2 style="margin-top: 32px;">AWS Services Used</h2>
-      <ul class="bullets">
-        <li><strong>S3</strong> – Private static content storage</li>
-        <li><strong>CloudFront</strong> – Global CDN and TLS enforcement</li>
-        <li><strong>ACM</strong> – Free public TLS certificate</li>
-        <li><strong>Route 53</strong> – DNS with alias records</li>
-        <li><strong>IAM</strong> – Least privilege deployment role</li>
-      </ul>
+      <!-- AWS Services Used -->
+<section class="card compact" style="margin-top: 32px;">
+  <h2>AWS Services Used</h2>
 
-      <!-- Security Controls -->
-      <h2>Security Controls</h2>
-      <ul class="bullets">
-        <li>Private S3 bucket (no public ACLs)</li>
-        <li>Origin Access Control (OAC)</li>
-        <li>HTTPS-only enforcement</li>
-        <li>MFA enabled for root and admin users</li>
-      </ul>
+  <h3>S3</h3>
+  <ul class="bullets">
+    <li>Private static content storage</li>
+  </ul>
 
-      <!-- CI/CD -->
-      <h2>CI/CD Strategy</h2>
-      <p>
-        Site deploys automatically on push to the <code>main</code> branch.
-      </p>
-      <ul class="bullets">
-        <li>GitHub Actions assumes IAM role via OIDC</li>
-        <li>Repository syncs to S3</li>
-        <li>CloudFront invalidation triggered post-deploy</li>
-      </ul>
+  <h3>CloudFront</h3>
+  <ul class="bullets">
+    <li>Global CDN for low-latency delivery</li>
+    <li>HTTPS enforcement via redirect policy</li>
+  </ul>
 
-      <!-- Cost -->
-      <h2>Cost Considerations</h2>
-      <ul class="bullets">
-        <li>S3 storage: minimal (static assets only)</li>
-        <li>CloudFront: low traffic footprint</li>
-        <li>ACM: free certificate</li>
-        <li>Estimated monthly cost: typically &lt; $5 under light traffic</li>
-      </ul>
+  <h3>ACM</h3>
+  <ul class="bullets">
+    <li>Free public TLS certificate (us-east-1 for CloudFront)</li>
+  </ul>
 
-      <!-- Tradeoffs -->
-      <h2>Tradeoffs</h2>
-      <ul class="bullets">
-        <li>Static site only (no backend)</li>
-        <li>Full cache invalidation used for simplicity</li>
-        <li>No WAF currently attached</li>
-      </ul>
+  <h3>Route 53</h3>
+  <ul class="bullets">
+    <li>DNS with alias records pointing to CloudFront</li>
+  </ul>
 
-      <!-- Future -->
-      <h2>Future Improvements</h2>
-      <ul class="bullets">
-        <li>Add AWS WAF for enhanced protection</li>
-        <li>Add CloudWatch dashboards and alarms</li>
-        <li>Rebuild infrastructure using Terraform</li>
-        <li>Implement path-based cache invalidation</li>
-      </ul>
+  <h3>IAM</h3>
+  <ul class="bullets">
+    <li>Least-privilege deployment role for CI/CD</li>
+  </ul>
+</section>
 
-      <hr style="border-color: rgba(255,255,255,.1); margin: 24px 0;">
+<!-- Security Controls -->
+<section class="card compact" style="margin-top: 24px;">
+  <h2>Security Controls</h2>
 
-      <a class="btn" href="/">← Back to Home</a>
+  <ul class="bullets">
+    <li>Private S3 bucket (no public ACLs)</li>
+    <li>Origin Access Control (OAC)</li>
+    <li>HTTPS-only enforcement</li>
+    <li>MFA enabled for root and admin users</li>
+  </ul>
+</section>
 
-    </div>
+<!-- CI/CD Strategy -->
+<section class="card compact" style="margin-top: 24px;">
+  <h2>CI/CD Strategy</h2>
+
+  <h3>Deployment Trigger</h3>
+  <ul class="bullets">
+    <li>Automatic deploy on push to <code>main</code></li>
+  </ul>
+
+  <h3>Deployment Process</h3>
+  <ul class="bullets">
+    <li>GitHub Actions assumes IAM role via OIDC</li>
+    <li>Repository syncs to S3</li>
+    <li>CloudFront invalidation triggered post-deploy</li>
+  </ul>
+</section>
+
+<!-- Cost Considerations -->
+<section class="card compact" style="margin-top: 24px;">
+  <h2>Cost Considerations</h2>
+
+  <ul class="bullets">
+    <li>S3 storage: minimal (static assets only)</li>
+    <li>CloudFront: low traffic footprint</li>
+    <li>ACM: free public certificate</li>
+    <li>Estimated monthly cost: typically &lt; $5 under light traffic</li>
+  </ul>
+</section>
+
+<!-- Tradeoffs -->
+<section class="card compact" style="margin-top: 24px;">
+  <h2>Tradeoffs</h2>
+
+  <ul class="bullets">
+    <li>Static site only (no backend)</li>
+    <li>Full cache invalidation used for simplicity</li>
+    <li>No WAF currently attached</li>
+  </ul>
+</section>
+
+<!-- Future Improvements -->
+<section class="card compact" style="margin-top: 24px;">
+  <h2>Future Improvements</h2>
+
+  <ul class="bullets">
+    <li>Add AWS WAF for enhanced protection</li>
+    <li>Add CloudWatch dashboards and alarms</li>
+    <li>Rebuild infrastructure using Terraform</li>
+    <li>Implement path-based cache invalidation</li>
+  </ul>
+</section>
   </main>
 
   <footer class="footer">
