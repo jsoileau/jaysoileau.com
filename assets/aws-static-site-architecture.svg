@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520">
+  <defs>
+    <style>
+      .bg { fill: #0f1a2f; }
+      .card { fill: rgba(255,255,255,0.04); stroke: rgba(255,255,255,0.16); stroke-width: 2; }
+      .title { fill: #e7eefc; font: 700 20px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
+      .label { fill: #9fb0d0; font: 600 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
+      .small { fill: #9fb0d0; font: 500 12px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
+      .accent { fill: #6ea8ff; }
+      .accent2 { fill: #7cf0c7; }
+      .line { stroke: rgba(255,255,255,0.22); stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .line2 { stroke: rgba(124,240,199,0.55); stroke-width: 3; fill: none; marker-end: url(#arrow2); }
+    </style>
+
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="rgba(255,255,255,0.35)"/>
+    </marker>
+    <marker id="arrow2" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="rgba(124,240,199,0.70)"/>
+    </marker>
+  </defs>
+
+  <!-- background -->
+  <rect class="bg" x="0" y="0" width="1200" height="520" rx="22"/>
+
+  <!-- title -->
+  <text class="title" x="40" y="52">AWS Static Portfolio — Architecture</text>
+  <text class="small" x="40" y="78">Private S3 origin via CloudFront OAC • HTTPS via ACM • DNS via Route 53 • CI/CD via GitHub Actions (OIDC)</text>
+
+  <!-- main flow cards -->
+  <!-- User -->
+  <rect class="card" x="60" y="150" width="220" height="120" rx="16"/>
+  <circle class="accent2" cx="96" cy="190" r="8"/>
+  <text class="title" x="118" y="198" font-size="18">User</text>
+  <text class="label" x="82" y="232">Browser requests</text>
+  <text class="small" x="82" y="255">https://jaysoileau.com</text>
+
+  <!-- Route 53 -->
+  <rect class="card" x="340" y="150" width="240" height="120" rx="16"/>
+  <circle class="accent" cx="376" cy="190" r="8"/>
+  <text class="title" x="398" y="198" font-size="18">Route 53</text>
+  <text class="label" x="362" y="232">DNS (A/ALIAS)</text>
+  <text class="small" x="362" y="255">Points domain → CloudFront</text>
+
+  <!-- CloudFront -->
+  <rect class="card" x="640" y="130" width="270" height="160" rx="16"/>
+  <circle class="accent2" cx="676" cy="170" r="8"/>
+  <text class="title" x="698" y="178" font-size="18">CloudFront</text>
+  <text class="label" x="662" y="212">CDN + HTTPS redirect</text>
+  <text class="small" x="662" y="235">TLS cert via ACM (us-east-1)</text>
+  <text class="small" x="662" y="258">Origin Access Control (OAC)</text>
+
+  <!-- S3 -->
+  <rect class="card" x="970" y="150" width="180" height="120" rx="16"/>
+  <circle class="accent" cx="1006" cy="190" r="8"/>
+  <text class="title" x="1028" y="198" font-size="18">S3</text>
+  <text class="label" x="992" y="232">Private bucket</text>
+  <text class="small" x="992" y="255">Static files (HTML/CSS)</text>
+
+  <!-- arrows main -->
+  <path class="line" d="M280 210 C305 210, 315 210, 340 210"/>
+  <path class="line" d="M580 210 C605 210, 615 210, 640 210"/>
+  <path class="line" d="M910 210 C935 210, 945 210, 970 210"/>
+
+  <!-- CI/CD lane -->
+  <rect class="card" x="340" y="340" width="360" height="140" rx="16"/>
+  <circle class="accent2" cx="376" cy="380" r="8"/>
+  <text class="title" x="398" y="388" font-size="18">GitHub Actions</text>
+  <text class="label" x="362" y="422">CI/CD on push → main</text>
+  <text class="small" x="362" y="446">Assumes IAM role via OIDC (no long-lived keys)</text>
+
+  <rect class="card" x="760" y="340" width="390" height="140" rx="16"/>
+  <circle class="accent" cx="796" cy="380" r="8"/>
+  <text class="title" x="818" y="388" font-size="18">AWS Deploy Role (IAM)</text>
+  <text class="label" x="782" y="422">Least privilege</text>
+  <text class="small" x="782" y="446">s3 sync + cloudfront invalidation (/*)</text>
+
+  <!-- arrows cicd -->
+  <path class="line2" d="M700 410 C725 410, 735 410, 760 410"/>
+  <path class="line2" d="M955 410 C980 410, 1000 360, 1060 290" />
+  <path class="line2" d="M900 380 C950 380, 960 250, 980 220" />
+
+  <!-- labels for CI/CD outputs -->
+  <text class="small" x="1030" y="300">Deploy → S3</text>
+  <text class="small" x="1000" y="370">Invalidate → CloudFront</text>
+</svg>
